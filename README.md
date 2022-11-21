@@ -15,15 +15,14 @@ pip install virtualenv
 
 ``` 
 
-### Start Virtualenv 
+### Create a Virtual environment
 
 make a new folder the save the project. 
 
 Once inside the project folder run: 
 
 ```bash 
-virtual env 
-
+virtualenv env 
 ``` 
 This will create a virtual environment 
 
@@ -32,8 +31,13 @@ This will create a virtual environment
 ##### on linux: 
 
 ```bash 
-source <my_env_name>/bin/activate
+source env/bin/activate
 ```
+##### on Windows: 
+```shell 
+\pathto\env\Scripts\activate
+```
+
 ## Running the project 
 
 ```bash 
@@ -52,7 +56,7 @@ python manage.py createsuperuser
 python manage.py runserver 
 
 ``` 
-#### open your browser and type paste this link (https://localhost:8000)
+#### open your browser and head to https://localhost:8000
 
 
 
