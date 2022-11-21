@@ -1,0 +1,10 @@
+{% extends 'main/base.html' %}
+{% block content %}
+                    <form method="post">
+                        {% csrf_token %}
+                    <h3><a style="text-decoration:none;" href="{% url 'home' %}">Go Back</a></h3>
+                 <p>Are you sure you want to delete the task: {{todo.title}} from your todolist? </p>
+                 <small class="text-muted">Press the button below to Confirm</small><br><br>
+                 <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+{% endblock %}

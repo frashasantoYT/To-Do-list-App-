@@ -1,0 +1,62 @@
+{% extends 'main/base.html' %}
+{% block content %}
+      
+                  <h4 class="text-center my-3 pb-3">Frasha Santo's ToDo List App</h4>
+                  {{task.User}}
+                  <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2" method="post">
+                    {% csrf_token %}
+                    <div class="col-12">
+                      <div class="form-outline">
+                        <input type="text" id="form1" name = "task" class="form-control" />
+                        <label class="form-label" for="form1">Enter a task here</label>
+                      </div>
+                    </div>
+      
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-dark"><a style="text-decoration: none; color: white;" href="{% url 'DeleteAll'%}">Delete All Tasks</a></button>
+                    </div>               
+                  </form>
+      
+                  <table class="table mb-4">
+                    <thead>
+                      <tr>
+                        <th scope="col">Todo Item</th>
+                        <th scope="col">status</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for todo in todo_list %}
+                      <tr>
+                        
+                         {% if todo.complete %}
+                        <td class="todo-completed">{{todo.title}}</td>
+                        <td>Finished</td>
+                        <td> <button type="submit" class="btn btn-danger"><a style="text-decoration: none; color: white;" href="{% url 'delete' todo.id %}">Delete</a></button></td>
+                      </tr>
+                        {%else%} 
+                        <tr>                
+                         <td>{{todo.title}}</td>
+                        <td>Not Completed</td>
+                       <!-- <td>Completed: <input type="checkbox" name="complete" id=""></td>-->
+                        <td> <button type="submit" class="btn btn-danger"><a style="text-decoration: none; color: white;" href="{% url 'delete' todo.id %}">Delete</a></button></td>
+                        <td> <button type="submit" class="btn btn-success"><a style="text-decoration: none; color: white;" href="{% url 'todo-completed' todo.id %}">Done</a></button></td>
+                        
+                    </tr>
+
+                        {%endif%}
+                        {%endfor%}
+            
+                         
+                        
+                      </tr>
+                
+                
+                    </tbody>
+                  </table>
+      
+                </div>
+{% endblock %}
