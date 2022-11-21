@@ -33,11 +33,10 @@ This will create a virtual environment
 
 ```bash 
 source <my_env_name>/bin/activate
-
 ```
 ## Running the project 
 
-'''bash 
+```bash 
 pip install -r requirements.txt 
 
 ``` 
@@ -53,7 +52,7 @@ python manage.py createsuperuser
 python manage.py runserver 
 
 ``` 
-head to [localhost](https://localhost:8000/)
+#### open your browser and type paste this link (https://localhost:8000)
 
 
 
